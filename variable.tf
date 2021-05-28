@@ -1,4 +1,3 @@
-
 variable "google_project_id" {
   description = "- (Required)  Google account project id."
 }
@@ -39,6 +38,44 @@ variable "machine_type" {
   default = "n1-standard-2"
   description = "- (Optional) The name of a Google Compute Engine machine type. Defaults to n1-standard-1. "
 }
+
+variable "labels" {
+  description = "Key Value Pairs of Labels to add to the nodes in the pool"
+  type        = "map"
+  default = {
+    labels = "fuchicorp-project"
+    }
+}
+
+variable "disk_size_in_gb" {
+  description = "Disk size, in GB, for the nodes in the pool."
+  default     = "10"
+}
+
+variable "image_type" {
+  default = "COS"
+  description = "image type"
+}
+variable "auto_repair" {
+  description = "Whether the nodes will be automatically repaired"
+  default     = true
+}
+
+variable "auto_upgrade" {
+  description = "Whether the nodes will be automatically upgraded"
+  default     = false
+}
+variable "preemptible_nodes" {
+  description = "Whether to use preemptible nodes"
+  default     = false
+}
+variable "node_pool" {
+  description = "name of node pool"
+  default     = "default-pool"
+}
+
+
+
 
 
 
