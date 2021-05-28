@@ -21,6 +21,9 @@ resource "google_container_cluster" "create" {
   subnetwork         = "${var.subnetwork}"
   location           = "${var.google_region}"
   project            = "${var.google_project_id}"
+  lifecycle {
+       create_before_destroy = true
+  }
   
  node_pool {
     name               = "${var.node_pool}"
